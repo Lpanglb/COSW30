@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+    <head>
+    <title>Political Campaign Supporter Form</title>
+    </head>
+    <body>
+        <h1>Political Campaign Supporter Form</h1>
+        <form action ="process_contact.php" method="POST">
+                    
+                    
+                    <label>First Name: </label>
+                    <input type ="text" id="first_name" name="first_name" required><br>
+                    <label >Last Name: </label>
+                    <input type="text" id="last_name" name ="last_name" required ><br>
+                    
+                  
+                    <label for ="email">Email Address: </label>
+                    <input type = "email" id="email" name="email" required><br>
+                    
+                    
+                    
+                    <label for ="gender">Gender</label>
+                    <select id="gender" name="gender" required>
+                        <option id="gender" value = "male">Male</option>
+                        <option id="gender" value="female">Female</option>
+                        <option id="gender" value="prefer not to say">Prefer not to say</option>
+                     </select>
+                     
+                    
+                     <div>
+                       <input type="radio" name="age" value="male" checked> 18-30<br>
+                         <input type="radio" name="age" value="female"> 31-50<br>
+                         <input type="radio" name="age" value="other"> 50-Older<br>
+                        </div>
+                        
+                 <div>
+                        <label for ="interests">List of interests: </label><br>
+                        <input type="checkbox" id="checkbox" value = "football" name="interests[]">Football<br>
+                        <input type="checkbox" id="checkbox" value = "hiking" name="interests[]">Hikling<br>
+                        <input type="checkbox" id="checkbox" value = "swimmimg" name="interests[]">Swimming<br>
+                        <input type="checkbox" id="checkbox" value = "computergame" name="interests[]">Computer Game<br>
+                        <input type="checkbox" id="checkbox" value = "skiing" name="interests[]">Skiing<br>
+                        <input type="checkbox" id="checkbox" value = "gardening" name="interests[]">Gardening<br>
+                    </div>
+               
+                    <label for ="contribution">Constribution: </label><br>
+                
+                    <input type="number" name="constribution" min="0" value="0">
+                    
+                    
+                    <div>
+                    <label for ="checkbox">Sign up and want to hear more about us: </label><br>
+                    <input type="checkbox"  name="checkboxyes" value="yes" checked> Yes<br>
+                   
+
+                        </div>
+                        
+                
+                    <label for="copmments">Comments: </label><br>
+                    <input type = "text" name ="comments" id="comments"><br>
+                    
+                   
+                    <button name= "submit" value = "submit">Submit</button>
+            
+        </form>
+    </body>
+</html>
