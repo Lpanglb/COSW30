@@ -1,0 +1,10 @@
+
+//pull in all the chanages to the draw board
+
+
+git pull upstream master
+
+
+//open a work station
+
+    gitpod.io/#/https://github.com/erfernandez77/cosw30-fall2019/tree/li_bk
