@@ -6,29 +6,19 @@ include('header_c.php');
 
 if (!$connection) {
     die("Connection failed: " . mysqli_connect_error());
-}
-//echo "Connected successfully";
+
+            echo "Not connection";
  
-
-
- ?>
-<?php
+}
 
 $query = 'SELECT * FROM USER_LISAN';
-
-
 // Run your query
 $result = mysqli_query($connection, $query);
-
 // Check if the database returned anything
 if($result) {
     $rows =mysqli_fetch_all($result, MYSQLI_ASSOC);
         // Output the results
-     // print_r($rows);
-      
-      
-      
-
+     print_r($rows);
 }
 
 else {
@@ -36,13 +26,25 @@ else {
     echo'This is not working';
 }
 
-
-
+ if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $id = $_POST['user_id'];
+    $first_name = $_POST['first_name'];
+     $last_name = $_POST['last_name'];
+      $email = $_POST['email'];
+       $password = $_POST['password'];
+       $confirm_password = $_POST['confirm_password'];
+       
+$update_query = "UPDATE INTO USER_LISAN SET first_name = '$first_name', 
+                                            last_name = '$last_name',
+                                            email = '$email',
+                                            password = '$password'
+                                        
+                            WHERE user_id = 1 ";     
+                            
+        echo"Good";
+}
 
 ?>
-
-
-
 
 
 <!doctype html>
@@ -70,7 +72,7 @@ else {
      </div>
      <div class="col col_form col_border text-center">
      <h1>Update User</h1>
-    <form action="crud_update.php" id="<?php ?>" method="POST">
+    <form action="update_c.php" id="<?php ?>" method="POST">
         <label for="first_name" class=" ">First Name</label>
         <input type="text" id="first_name" name="first_name" value="<?php echo $first_name;?>"><br>
 
@@ -85,7 +87,7 @@ else {
   
         <!--Add a second password input so the user has to retype their password -->
 
-        <button type="button" class="btn btn-outline-primary"> <a href ="delete_c.php?"  >Update</a></button>
+        <button type="button" class="btn btn-outline-primary"> <a href ="crud_update.php"  >Update</a></button>
           
     </form>
     </div> <!--  closing form col-->
