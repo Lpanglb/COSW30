@@ -9,6 +9,6 @@ $dbname = getenv('DB_NAME_FULL');
 
 //Establish the connetion to the database
 
-$connection = mysqli_connect('$hostname, $username, $password, $dbname');
+$connection = mysqli_connect($hostname, $username, $password, $dbname);
 
 ?>

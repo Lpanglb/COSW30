@@ -8,3 +8,433 @@ git pull upstream master
 //open a work station
 
     gitpod.io/#/https://github.com/erfernandez77/cosw30-fall2019/tree/li_bk
+    
+    
+    
+    
+    
+    
+        // if(isset($_GET['edit'])){
+    //     $id = $_GET['id'];
+    //     $result = $mysqli ->query("SELECT * FROM USER_LISAN where id = $id") or die($mysqli->error());
+    //     if(count($result)==1){
+    //         $row = $row->fetch_array();
+    //         $first_name = $row['first_name'];
+    //         $last_name =  $row['last_name'];
+    //     }
+    //     header("crud_update.php");
+    // }
+    
+     <label for="first_name">First Name</label>
+        <input type="text" id="first_name" name="first_name" value="<?php echo $first_name;?>"><br>
+                    
+                    <!-- Adding value=" ?php echo $first_name;?>" to put them in placeholder to show*/ -->
+                    
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" name="last_name" value="<?php echo $last_name;?>"><br>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" value="<?php echo $email;?>"><br>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" value="<?php echo $password;?>"><br>
+        
+              <!--Adding this to hid the id as 2nd way to do it. -->
+        
+        <input type="hidden" name = "user_id" value = "<?php echo $id; ?>">
+        
+        
+        if(isset($_GET['id'])) {
+    $id = $_GET['id'];
+  echo"whatr";
+} else {
+    // redirect to crud.php
+}
+/*
+*   AFTER SUBMITTING THE UPDATE FORM, UPDATE THE INFO
+*   IN THE DATABASE
+*/
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $first_name = $_POST['first_name'];
+    $last_name  = $_POST['last_name'];
+    $email      = $_POST['email'];
+    $password   = $_POST['password'];
+
+
+
+}
+//  $update = "UPDATE  USER_LISAN SET last_name ='Julie' WHERE user_id= 22 ";
+
+// // Run your query
+// $result = mysqli_query($connection, $query);
+
+// // Check if the database returned anything
+// if($result) {
+//     $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+//         // Output the results
+//         print_r($rows);
+       
+
+// }
+
+// else {
+//     // Output an error
+//     echo'This is not working';
+// }
+
+$query = "SELECT * FROM USER_LISAN WHERE user_id = $id";
+// Run your query
+$result = mysqli_query($connection, $query);
+// Check if the database returned anything
+if($result) {
+    // If the database query was successful, store
+    // the users information into a variable
+    $user = mysqli_fetch_assoc($result);
+    echo "lisan";
+} else {
+    // Output an error message
+}
+
+
+
+
+
+
+
+// sql to delete a record
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+<?php
+
+/*
+*   CHECK IF THE FORM HAS BEEN SUBMITTED AND INSERT
+*   NEW USER INTO THE DATABASE
+*/
+
+// echo '.$id.';
+
+// $update = "UPDATE USER_LISAN SET last_name ='Julie' WHERE id= 1 ";
+
+// if (mysqli_query($connection, $update)) {
+//     echo "Record updated successfully";
+// } else {
+//     echo "Error updating record: " . mysqli_error($connection);
+// }
+
+
+
+// if (!$connection) {
+//     die("Connection failed: " . mysqli_connect_error());
+// }
+
+// $sql = "SELECT user_id, first_name, last_name FROM USER_LISAN WHERE last_name='Pang'";
+// $result = mysqli_query($connection, $update);
+
+// if (mysqli_num_rows($result) > 0) {
+//     // output data of each row
+//     while($row = mysqli_fetch_assoc($result)) {
+//         echo "id: " . $row["user_id"]. " - Name: " . $row["firs_tname"]. " " . $row["last_name"]. "<br>";
+//     }
+// } else {
+//     echo "0 results";
+// }
+
+
+?>
+
+
+
+<?php
+// if($_SERVER['REQUEST_METHOD'] == 'POST') {
+//     $id = $_POST['user_id'];
+//     $first_name = $_POST['first_name'];
+//      $last_name = $_POST['last_name'];
+//       $email = $_POST['email'];
+//       $password = $_POST['password'];
+
+    
+//   // validate the input (chieck if the're empty
+//     $error = ['$update_query'];
+//     if ($error = ['$update_query']){
+//       //$error= 'error massage';
+//       echo 'its work';
+        
+//     }
+    
+//     else{ echo'doesnot work';
+    
+//     // echo '$id';iu[]
+        
+//     //    $update
+//     }
+
+   
+//     $update_query = "UPDATE INTO USER_LISAN SET first_name = 'julie', 
+//                                             last_name = 'jakc',
+//                                             email = 'nopwhat@yah.com',
+//                                             password = 'coco'
+                                        
+//                             WHERE user_id = '2' ";
+
+
+// //QUERY THE DATABASE AND STORE ALL USERS INTO A VARIABLE
+
+// // Create your query
+
+// }
+// $query = 'SELECT * FROM USER_LISAN';
+
+// // Run your query
+// $result = mysqli_query($connection, $query);
+// // Check if the database returned anything
+// if($result) {
+//   $row = mysqli_fetch_array($query, MYSQLI_ASSOC);
+//         // Output the results
+//         echo 'working';
+    
+// } else {
+//     // Output an error
+//     echo 'not working';
+// }
+
+
+ ?>
+
+
+
+
+<!doctype html>
+<html>
+<head>
+    <title>update my Crud</title>
+</head>
+<body>
+    <h1>Update User</h1>
+    
+                  <!--Add a second password input so the user has to retype their password -->
+    
+    
+     <form>
+    <form action="" method="POST">
+        
+        <label for="first_name">First Name</label>
+        <input type="text" id="first_name" name="first_name" value="<?php echo $first_name;?>"><br>
+                    
+                    <!-- Adding value=" ?php echo $first_name;?>" to put them in placeholder to show*/ -->
+                    
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" name="last_name" value="<?php echo $last_name;?>"><br>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" value="<?php echo $email;?>"><br>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" value="<?php echo $password;?>"><br>
+        
+              <!--Adding this to hid the id as 2nd way to do it. -->
+        
+        <input type="hidden" name = "user_id" value = "<?php echo $id; ?>">
+
+
+        <!--Add a second password input so the user has to retype their password -->
+
+
+
+
+if(isset($_GET['id'])) {
+    $id = $_GET['id'];
+  echo"whatr";
+} else {
+    // redirect to crud.php
+}
+/*
+*   AFTER SUBMITTING THE UPDATE FORM, UPDATE THE INFO
+*   IN THE DATABASE
+*/
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $first_name = $_POST['first_name'];
+    $last_name  = $_POST['last_name'];
+    $email      = $_POST['email'];
+    $password   = $_POST['password'];
+
+
+
+}
+//  $update = "UPDATE  USER_LISAN SET last_name ='Julie' WHERE user_id= 22 ";
+
+// // Run your query
+// $result = mysqli_query($connection, $query);
+
+// // Check if the database returned anything
+// if($result) {
+//     $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+//         // Output the results
+//         print_r($rows);
+       
+
+// }
+
+// else {
+//     // Output an error
+//     echo'This is not working';
+// }
+
+$query = "SELECT * FROM USER_LISAN WHERE user_id = $id";
+// Run your query
+$result = mysqli_query($connection, $query);
+// Check if the database returned anything
+if($result) {
+    // If the database query was successful, store
+    // the users information into a variable
+    $user = mysqli_fetch_assoc($result);
+    echo "lisan";
+} else {
+    // Output an error message
+}
+
+
+
+
+
+
+
+// sql to delete a record
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+<?php
+
+/*
+*   CHECK IF THE FORM HAS BEEN SUBMITTED AND INSERT
+*   NEW USER INTO THE DATABASE
+*/
+
+// echo '.$id.';
+
+// $update = "UPDATE USER_LISAN SET last_name ='Julie' WHERE id= 1 ";
+
+// if (mysqli_query($connection, $update)) {
+//     echo "Record updated successfully";
+// } else {
+//     echo "Error updating record: " . mysqli_error($connection);
+// }
+
+
+
+// if (!$connection) {
+//     die("Connection failed: " . mysqli_connect_error());
+// }
+
+// $sql = "SELECT user_id, first_name, last_name FROM USER_LISAN WHERE last_name='Pang'";
+// $result = mysqli_query($connection, $update);
+
+// if (mysqli_num_rows($result) > 0) {
+//     // output data of each row
+//     while($row = mysqli_fetch_assoc($result)) {
+//         echo "id: " . $row["user_id"]. " - Name: " . $row["firs_tname"]. " " . $row["last_name"]. "<br>";
+//     }
+// } else {
+//     echo "0 results";
+// }
+
+
+?>
+
+
+
+<?php
+// if($_SERVER['REQUEST_METHOD'] == 'POST') {
+//     $id = $_POST['user_id'];
+//     $first_name = $_POST['first_name'];
+//      $last_name = $_POST['last_name'];
+//       $email = $_POST['email'];
+//       $password = $_POST['password'];
+
+    
+//   // validate the input (chieck if the're empty
+//     $error = ['$update_query'];
+//     if ($error = ['$update_query']){
+//       //$error= 'error massage';
+//       echo 'its work';
+        
+//     }
+    
+//     else{ echo'doesnot work';
+    
+//     // echo '$id';iu[]
+        
+//     //    $update
+//     }
+
+   
+//     $update_query = "UPDATE INTO USER_LISAN SET first_name = 'julie', 
+//                                             last_name = 'jakc',
+//                                             email = 'nopwhat@yah.com',
+//                                             password = 'coco'
+                                        
+//                             WHERE user_id = '2' ";
+
+
+// //QUERY THE DATABASE AND STORE ALL USERS INTO A VARIABLE
+
+// // Create your query
+
+// }
+// $query = 'SELECT * FROM USER_LISAN';
+
+// // Run your query
+// $result = mysqli_query($connection, $query);
+// // Check if the database returned anything
+// if($result) {
+//   $row = mysqli_fetch_array($query, MYSQLI_ASSOC);
+//         // Output the results
+//         echo 'working';
+    
+// } else {
+//     // Output an error
+//     echo 'not working';
+// }
+
+
+
+
+ <label for="first_name">First Name</label>
+        <input type="text" id="first_name" name="first_name" value="<?php echo $first_name;?>"><br>
+                    
+                    <!-- Adding value=" ?php echo $first_name;?>" to put them in placeholder to show*/ -->
+                    
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" name="last_name" value="<?php echo $last_name;?>"><br>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" value="<?php echo $email;?>"><br>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" value="<?php echo $password;?>"><br>
+        
+              <!--Adding this to hid the id as 2nd way to do it. -->
+        
+        <input type="hidden" name = "user_id" value = "<?php echo $id; ?>">

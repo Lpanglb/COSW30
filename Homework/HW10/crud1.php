@@ -15,17 +15,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
        
        
        
-        $insert_query = "INSERT INTO USERS_LISAN(first_name,last_name,email, password)
-                            VALUE($first_name, $last_name, $email,$password)";
+        $insert_query = "INSERT INTO USER_LISAN(first_name,last_name,email, password)
+                            VALUES ('$first_name', '$last_name', '$email','$password')";
         $result = mysqli_query($connection, $insert_query);        
         
         if($result){
             echo 'New user added to the database';
             
         }
-            else
-            {echo'error';
+            else {
+                echo'error';
             }
+
 }
 /*
 *   QUERY THE DATABASE AND STORE ALL USERS INTO A VARIABLE
@@ -35,14 +36,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 $query = 'SELECT * FROM USER_LISAN';
 
+
 // Run your query
 $result = mysqli_query($connection, $query);
+
 // Check if the database returned anything
 if($result) {
     $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
         // Output the results
         print_r($rows);
-    
+
 }
 
 else {

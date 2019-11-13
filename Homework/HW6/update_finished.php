@@ -8,32 +8,36 @@ include('database.php');
 *   NEW USER INTO THE DATABASE
 */
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // $id = $_POST['user_id'];
     $first_name = $_POST['first_name'];
      $last_name = $_POST['last_name'];
       $email = $_POST['email'];
        $password = $_POST['password'];
     
     
-    //validate the input (chieck if the're empty
-    $error = [];
-    if (condition){
-        $error[] = 'error massage';
+   // validate the input (chieck if the're empty
+    $error = ['$update_query'];
+    if ($error = ['$update_query']){
+      //$error= 'error massage';
+      echo 'it;s work';
         
     }
     
-    if(empty($error)){
+    else{ echo'doesnot work';
+    
+    // echo '$id';iu[]
         
     //    $update
     }
+
     
     $update_query = "UPDATE USER_LISAN SET first_name = '$first_name', 
                                             last_name = '$last_name',
                                             email = '$email',
                                             password = '$password'
                                         
-                            WHERE user_id = $id ";                
-    
-}
+                            WHERE user_id = $id;
+
 /*
 *   QUERY THE DATABASE AND STORE ALL USERS INTO A VARIABLE
 */
@@ -46,27 +50,40 @@ $query = 'SELECT * FROM USER_LISAN';
 $result = mysqli_query($connection, $query);
 // Check if the database returned anything
 if($result) {
-    while($row = mysqli_fetch_array($result)){
+    while($row = mysqli_fetch_array($query)){
         // Output the results
+        echo 'working';
     }
 } else {
     // Output an error
+    echo 'not working';
 }
-?>
+
+
+
+}
+
+ ?>
+
+
 
 <!doctype html>
 <html>
 <head>
-    <title>My First CRUD</title>
+    <title>update my Crud</title>
 </head>
 <body>
     <h1>Update User</h1>
     
                   <!--Add a second password input so the user has to retype their password -->
     
-    <form action="crud1.php" id="<?php ?>" method="POST">
-        
-
+       
+      
+    
+    
+    
+     <form>
+    
         
         <label for="first_name">First Name</label>
         <input type="text" id="first_name" name="first_name" value="<?php echo $first_name;?>"><br>
@@ -89,30 +106,38 @@ if($result) {
 
         <!--Add a second password input so the user has to retype their password -->
 
-        <button>Register</button>
+        <button>Update</button>
     </form>
 
-    <h2>Output a List of Users</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Password</th>
-                <th>Edit</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <!--Add a link where it going to show that show id number -->
-                <td><a href = "update_finished.php?id='.$row['user_id'].">Edit</a></td>
-            </tr>
-        </tbody>
-    </table>
+<!--<?php echo $row['user_id'] ; ?>-->
+
+
+<!--    <h2>Output a List of Users</h2>-->
+<!--    <table>-->
+<!--        <thead>-->
+<!--            <tr>-->
+<!--                <th>First Name</th>-->
+<!--                <th>Last Name</th>-->
+<!--                <th>Email</th>-->
+<!--                <th>Password</th>-->
+<!--                <th>Edit</th>-->
+<!--            </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+              
+<!--            <?php-->
+<!--            foreach($rows as $row)-->
+<!--            echo '<tr>-->
+<!--                <td>'.$row['user_id'].'</td>-->
+<!--                <td>'.$row['first_name'].'</td>-->
+<!--                <td>'.$row['last_name'].'</td>-->
+<!--                <td>'.$row['email'].'</td>-->
+<!--                <td>'.$row['password'].'</td>-->
+         
+<!--                <td><a href = "update_crud.php " id="edit">Edit</a></td>-->
+<!--            </tr>';-->
+<!--            ?>-->
+<!--            </tbody>-->
+<!--    </table>-->
 </body>
 </html>

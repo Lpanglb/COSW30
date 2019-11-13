@@ -10,7 +10,7 @@
                 border-style: solid;
                 border-width: 5px;
                 height: 200px;
-                padding-top: 2%;
+                padding-top: 5%;
              
                
            }
