@@ -2,48 +2,22 @@
 
 include('database.php');
 
-$sql = "DELETE FROM USER_LISAN WHERE user_id= 2 ";
 
-if (mysqli_query($connection, $sql)) {
-    echo "Record deleted successfully";
+if(isset($_GET['id'])) {
+    $id = $_GET['id'];
+    
+    echo "$id";
+    echo"working";
 } else {
-    echo "Error deleting record: " . mysqli_error($connection);
-}
-$sql = "DELETE FROM USER_LISAN WHERE user_id= 28 ";
-
-if (mysqli_query($connection, $sql)) {
-    echo "Record deleted successfully";
-} else {
-    echo "Error deleting record: " . mysqli_error($connection);
-}
-$sql = "DELETE FROM USER_LISAN WHERE user_id= 29 ";
-
-if (mysqli_query($connection, $sql)) {
-    echo "Record deleted successfully";
-} else {
-    echo "Error deleting record: " . mysqli_error($connection);
-}
-$sql = "DELETE FROM USER_LISAN WHERE user_id= 30 ";
-
-if (mysqli_query($connection, $sql)) {
-    echo "Record deleted successfully";
-} else {
-    echo "Error deleting record: " . mysqli_error($connection);
+    header('Location:crud_update.php');
+    exit;
 }
 
-//header("crud_update.php");
-
+$sql = "DELETE FROM USER_LISAN WHERE user_id = $id";
+$result = mysqli_query($connection, $sql);
+// header("crud_update.php");
+if($result) {
+        header('Location:crud_update.php');
+        echo"delete";
+}
 ?>
-<!DOCTYPE HTML>
-<html>
-<head>
-    
-    
-</head>    
-
-
-<body>
-    <button type="button" class="btn btn-outline-primary"> <a href ="crud_update.php?"  >Home</a></button>
-    
-</body>
-</html>

@@ -2,13 +2,13 @@
 // Add the database connection
 
 include('database.php');
-
+include('header_c.php');
 /*
 *   CHECK IF THE FORM HAS BEEN SUBMITTED AND INSERT
 *   NEW USER INTO THE DATABASE
 */
 
-        $first_name = "";
+    $first_name = "";
     $last_name = "";
     $email = "";
     $password = "";
@@ -16,16 +16,16 @@ include('database.php');
        
        
      
-           if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id = $_POST['user_id'];
-    $first_name = $_POST['first_name'];
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+     $id = $_POST['user_id'];
+     $first_name = $_POST['first_name'];
      $last_name = $_POST['last_name'];
-      $email = $_POST['email'];
-       $password = $_POST['password'];
-       $confirm_password = $_POST['confirm_password'];
+     $email = $_POST['email'];
+     $password = $_POST['password'];
+     $confirm_password = $_POST['confirm_password'];
        
        
-      if(empty($email)) {   //email is empty
+        if(empty($email)) {   //email is empty
             //Output an error message
             $error = 'Email must be entered';
         }
@@ -47,83 +47,45 @@ include('database.php');
   </div>';;
             
         }
-        else{
-       
-       
-      
-    //   if($_POST['password'] != $_POST['re_password']){
-    //       echo "Please Re-entering the password";
-    //   }
-       
-       
+        else
+        {
         $insert_query = "INSERT INTO USER_LISAN(first_name,last_name,email, password)
                             VALUES ('$first_name', '$last_name', '$email','$password')";
         $result = mysqli_query($connection, $insert_query);        
-        
         if($result){
            echo '<div class="alert alert-success alert-dismissible">
     <button type="button" class="close" data-dismiss="alert">×</button>
     <strong>Success!</strong> Adding user is complete!
   </div>';
-            
         }
             else {
                 echo'error';
             }
-            
-        // $update_query = "UPDATE USER_LISAN SET first_name = '$first_name', 
-        //                                     last_name = '$last_name',
-        //                                     email = '$email',
-        //                                     password = '$password'
-                                        
-        //                     WHERE user_id = $id ";   
-
+      
+        }
 }
 
-}
-
-//   if(empty($_POST['first_name']) && empty($_POST['last_name'])){
-           
-           
-// }
-// else{
-    
-//     echo "Please input the something";
-    
-// }
-/*
-*   QUERY THE DATABASE AND STORE ALL USERS INTO A VARIABLE
-*/
-// Create your query
-
-
-$query = 'SELECT * FROM USER_LISAN';
+    $query = 'SELECT * FROM USER_LISAN';
 
 
 // Run your query
-$result = mysqli_query($connection, $query);
+    $result = mysqli_query($connection, $query);
 
 // Check if the database returned anything
-if($result) {
+    if($result) {
     $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
         // Output the results
       //  print_r($rows);
       
 
-}
+                }
 
-else {
+    else {
     // Output an error
-    echo'This is not working';
-}
-
+        echo'This is not working';
+        }
 ?>
 
-<?php
-
-include('header_c.php');
-
-?>
 <body>
      <div class="row row1">
          <div class= "col-*-*" col1">
@@ -132,7 +94,7 @@ include('header_c.php');
          </div>
         
     <div class="row ">
-  <div class="col text-center">
+      <div class="col text-center">
     
     </div>
     </div> <!--closing col col text-->
@@ -200,8 +162,8 @@ include('header_c.php');
                 <td>'.$row['last_name'].'</td>
                 <td>'.$row['email'].'</td>
                 <td>'.$row['password'].'</td>
-                <td><button type="button" class="btn btn-outline-primary"> <a href ="update_c.php? id =' .$row['user_id'].' ">Edit</a></button></td>
-                <td><button type="button" class="btn btn-outline-primary"> <a href ="delete_c.php?"  >Delete</a></button></td>
+                <td><button type="button" class="btn btn-outline-primary"> <a href="update_c.php?id='.$row['user_id'].'">Edit</a></button></td>
+                <td><button type="button" class="btn btn-outline-primary"> <a href="delete_c.php?id='.$row['user_id'].'"  >Delete</a></button></td>
                 
             </tr>';
             
