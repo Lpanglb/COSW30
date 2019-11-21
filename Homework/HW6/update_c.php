@@ -20,6 +20,10 @@ if(isset($_GET['id'])) {
     exit;
 }
 
+// if(isset($_GET['password'])){
+//     $oldpassword = $_GET['password'];
+//     echo "$oldpassword";
+// }
 
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -30,6 +34,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
       
        
+if(empty($email) && empty($first_name) && empty(last_name) && empty($password)) {   //email is empty
+            //Output an error message
+            echo '<div class="alert alert-warning alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>Success!</strong> Please make sure to fill out all the blank space
+  </div>';;
+        }
+        else{
+        
     $update_query = "UPDATE USER_LISAN SET first_name = '$first_name', 
                                             last_name = '$last_name',
                                             email = '$email',
@@ -46,6 +59,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         echo "Error from adding stuff";
     }
+}
 } // END OF $_SERVER['REQUEST_METHOD'] == 'POST'
 
 

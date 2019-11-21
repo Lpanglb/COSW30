@@ -108,13 +108,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
      <h1>Create a New User</h1>
     <form action="crud_update.php" id="<?php ?>" method="POST">
         <label for="first_name" class=" ">First Name</label>
-        <input type="text" id="first_name" name="first_name" class="" value="<?php echo $first_name;?>" required><br>
+        <input type="text" id="first_name" name="first_name" class=""  required><br>
 
         <label for="last_name" class=" ">Last Name</label>
-        <input type="text" id="last_name" name="last_name" class="" value="<?php echo $last_name;?>"required><br>
+        <input type="text" id="last_name" name="last_name" class="" required><br>
 
         <label for="email" class=" ">Email    </label>
-        <input type="email" id="email" name="email" class=" " value="<?php echo $email;?>" required ><br>
+        <input type="email" id="email" name="email" class="" required><br>
 
         <label for="password" class="">Password  </label>
         <input type="password" id="password" name="password" class=" " required ><br>
